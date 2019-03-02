@@ -16,4 +16,4 @@ const getResultElement = async ({ name, Selector }) => await Selector(`[data-res
 
 const getResultText = async ({ name, Selector }) => await Selector(`[data-result="${name}"]`).textContent;
 
-export { checkLiquidErrors, getResultElement, getResultText };
+module.exports = { checkLiquidErrors, getResultElement, getResultText };
