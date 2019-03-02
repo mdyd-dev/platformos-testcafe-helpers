@@ -1,7 +1,7 @@
 {
   "name": "@platform-os/testcafe-helpers",
-  "version": "1.0.0",
-  "description": "TestCafe helpers",
+  "version": "2.0.0",
+  "description": "TestCafe helpers for platformOS",
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome:headless test.js",
@@ -10,6 +10,7 @@
   "peerDependencies": {
     "testcafe": "^1.1.0"
   },
+  "files": ["index.js"],
   "repository": "https://github.com/mdyd-dev/platformos-testcafe-helpers.git",
   "author": "Paweł Kowalski <pavelloz@gmail.com>",
   "license": "MIT"

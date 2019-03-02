@@ -1,6 +1,4 @@
-import { Selector } from 'testcafe';
-
-const checkLiquidErrors = async t => {
+const checkLiquidErrors = async ({ t, Selector }) => {
   const bodyText = await Selector('Body').textContent;
 
   return t
@@ -14,8 +12,8 @@ const checkLiquidErrors = async t => {
     .notContains('ExecuteQueryTagError:');
 };
 
-const getResultElement = async name => await Selector(`[data-result="${name}"]`);
+const getResultElement = async ({ name, Selector }) => await Selector(`[data-result="${name}"]`);
 
-const getResultText = async name => await Selector(`[data-result="${name}"]`).textContent;
+const getResultText = async ({ name, Selector }) => await Selector(`[data-result="${name}"]`).textContent;
 
 export { checkLiquidErrors, getResultElement, getResultText };
