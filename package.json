@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome:headless test.js",
+    "test-ci": "testcafe 'chromium:headless --no-sandbox' test.js",
     "prepare": "npm test"
   },
   "peerDependencies": {
