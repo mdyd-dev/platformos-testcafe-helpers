@@ -1,7 +1,7 @@
 @Library('pipeline-utils')_
 
 pipeline {
-  agent any
+  agent none
 
   options { disableConcurrentBuilds() }
 
@@ -10,7 +10,7 @@ pipeline {
     stage('Test') {
       agent { docker { image "platformos/testcafe" } }
       steps {
-        sh "npm test"
+        sh "npm run test-ci"
       }
     }
 
