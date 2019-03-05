@@ -1,6 +1,6 @@
 {
   "name": "@platform-os/testcafe-helpers",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "TestCafe helpers for platformOS",
   "main": "index.js",
   "scripts": {

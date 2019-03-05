@@ -75,6 +75,45 @@ test('getResultText', async t => {
 });
 ```
 
+### getBtAlertElement
+
+Gets TestCafe element marked using default Twitter Bootstrap alert css class. Type defaults to `success`.
+
+#### Example
+
+For HTML: `<div class="alert alert-danger">You do not have permission to do that.</div>`
+
+```js
+test('getBtAlertElement', async t => {
+  const dangerElement = await getBtAlertElement({ type: 'danger', Selector });
+  const dangerText = await dangerElement.innerText;
+  
+  const noTypeElement = await getBtAlertElement({ Selector });
+  const noTypeText = await noTypeElement.innerText;
+
+  await t.expect(dangerText).contains('You do not have permission to do that.');
+  await t.expect(noTypeText).contains('Flash notice');
+});
+```
+
+### getBtAlertText
+
+Returns `textContent` of an alert marked using default Twitter Bootstrap alert css class. Type defaults to `success`.
+
+#### Example
+
+For HTML: `<div class="alert alert-warning">You do not have permission to do that.</p>`
+
+```js
+test('getBtAlertText', async t => {
+  const danger = await getBtAlertText({ type: 'danger', Selector });
+  const noType = await getBtAlertText({ Selector });
+  
+  await t.expect(danger).contains('Flash error');
+  await t.expect(noType).contains('Flash notice');
+});
+```
+
 ## Contributions
 
 [Issues are open](https://github.com/mdyd-dev/platformos-testcafe-helpers/issues)

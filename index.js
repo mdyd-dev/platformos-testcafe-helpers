@@ -16,4 +16,14 @@ const getResultElement = async ({ name, Selector }) => await Selector(`[data-res
 
 const getResultText = async ({ name, Selector }) => await Selector(`[data-result="${name}"]`).textContent;
 
-module.exports = { checkLiquidErrors, getResultElement, getResultText };
+const getBtAlertElement = async ({ type = 'success', Selector }) => await Selector(`.alert.alert-${type}`);
+
+const getBtAlertText = async ({ type = 'success', Selector }) => await Selector(`.alert.alert-${type}`).textContent;
+
+module.exports = {
+  checkLiquidErrors,
+  getResultElement,
+  getResultText,
+  getBtAlertElement,
+  getBtAlertText
+};
