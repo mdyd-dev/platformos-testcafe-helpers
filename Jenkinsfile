@@ -30,7 +30,7 @@ pipeline {
     stage('Build Testcafe') {
       when { branch 'master' }
       steps {
-        build job: 'platform-os/toolbelt', parameters: [string(name: 'force', value: "testcafe")]
+        build job: 'platformOS/toolbelt/master', parameters: [string(name: 'force', value: "testcafe")]
       }
     }
   }
