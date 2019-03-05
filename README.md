@@ -16,7 +16,7 @@ Provide the input (module itself does not include TestCafe as dependency) and yo
 
 ### Install package
 
-    npm i -D @platform-os/testcafe-helpers
+    npm i @platform-os/testcafe-helpers
 
 ### Import what you need
 
@@ -24,7 +24,9 @@ Provide the input (module itself does not include TestCafe as dependency) and yo
 import {
   checkLiquidErrors,
   getResultElement, 
-  getResultText
+  getResultText,
+  getBtAlertElement,
+  getBtAlertText
 } from '@platform-os/testcafe-helpers';
 ```
 
@@ -77,11 +79,11 @@ test('getResultText', async t => {
 
 ### getBtAlertElement
 
-Gets TestCafe element marked using default Twitter Bootstrap alert css class. Type defaults to `success`.
+Gets TestCafe element marked using default Twitter Bootstrap alert css class. `type` defaults to `success`.
 
 #### Example
 
-For HTML: `<div class="alert alert-danger">You do not have permission to do that.</div>`
+For HTML: `<div class="alert alert-danger">Error</div><div class="alert alert-success">Success</div>`
 
 ```js
 test('getBtAlertElement', async t => {
@@ -91,26 +93,26 @@ test('getBtAlertElement', async t => {
   const noTypeElement = await getBtAlertElement({ Selector });
   const noTypeText = await noTypeElement.innerText;
 
-  await t.expect(dangerText).contains('You do not have permission to do that.');
-  await t.expect(noTypeText).contains('Flash notice');
+  await t.expect(dangerText).contains('Error');
+  await t.expect(noTypeText).contains('Success');
 });
 ```
 
 ### getBtAlertText
 
-Returns `textContent` of an alert marked using default Twitter Bootstrap alert css class. Type defaults to `success`.
+Returns `textContent` of an alert marked using default Twitter Bootstrap alert css class. `type` defaults to `success`.
 
 #### Example
 
-For HTML: `<div class="alert alert-warning">You do not have permission to do that.</p>`
+For HTML: `<div class="alert alert-danger">Error</div><div class="alert alert-success">Success</div>`
 
 ```js
 test('getBtAlertText', async t => {
   const danger = await getBtAlertText({ type: 'danger', Selector });
   const noType = await getBtAlertText({ Selector });
   
-  await t.expect(danger).contains('Flash error');
-  await t.expect(noType).contains('Flash notice');
+  await t.expect(danger).contains('Error');
+  await t.expect(noType).contains('Success');
 });
 ```
 
