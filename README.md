@@ -124,7 +124,7 @@ Returns an object with two objects inside: `raw` and `computed`.
 #### Raw
 Contains raw data from `window.performance.timing`.
 
-Read more
+[Read more](https://www.html5rocks.com/en/tutorials/webperformance/basics/)
 
 #### Computed 
 Computed contains couple commonly used metrics that will give you basic overview on the performance.  
