@@ -116,6 +116,37 @@ test('getBtAlertText', async t => {
 });
 ```
 
+
+### getPerformanceMetrics
+
+Returns an object with two objects inside: `raw` and `computed`.
+
+#### Raw
+Contains raw data from `window.performance.timing`.
+
+Read more
+
+#### Computed 
+Computed contains couple commonly used metrics that will give you basic overview on the performance.  
+
+* `ttfb` - from `navigationStart` till `responseEnd`
+* `dns` - from `domainLookupStart` till `domainLookupEnd`
+* `tcp` - from `connectStart` till `connectEnd`
+* `domReady` - from `navigationStart` till `domComplete`
+* `networkLatency` - `fetchStart` till `responseEnd`
+* `processing` - `loadEventEnd` till `responseEnd`
+* `everything` - `loadEventEnd` till `navigationStart`
+
+#### Example
+
+```js
+test('DOM ready under 2s', async t => {
+  const perf = await getPerformanceMetrics({ t });
+
+  await t.expect(perf.domReady).lt(2000);
+});
+```
+
 ## Contributions
 
 [Issues are open](https://github.com/mdyd-dev/platformos-testcafe-helpers/issues)

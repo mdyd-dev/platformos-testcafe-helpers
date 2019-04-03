@@ -1,5 +1,12 @@
 import { Selector } from 'testcafe';
-import { checkLiquidErrors, getResultElement, getResultText, getBtAlertElement, getBtAlertText } from './index';
+import {
+  checkLiquidErrors,
+  getResultElement,
+  getResultText,
+  getBtAlertElement,
+  getBtAlertText,
+  getPerformanceMetrics
+} from './index';
 
 const url = 'https://examples.staging.oregon.platform-os.com/multilanguage';
 const forceAlertsQuery =
@@ -60,4 +67,23 @@ test('getBtAlertText', async t => {
   await t.expect(success).contains('Flash notice');
   await t.expect(info).contains('Flash info');
   await t.expect(noType).contains('Flash notice');
+});
+
+test('getPerformanceMetrics', async t => {
+  await t.navigateTo(`${url}`);
+
+  const perf = await getPerformanceMetrics({ t });
+
+  const { raw, computed } = perf;
+
+  await t.expect(raw).typeOf('object');
+  await t.expect(computed).typeOf('object');
+
+  for (let r in raw) {
+    await t.expect(raw[r]).typeOf('number');
+  }
+
+  for (let c in computed) {
+    await t.expect(computed[c]).typeOf('number');
+  }
 });
