@@ -142,8 +142,9 @@ Computed contains couple commonly used metrics that will give you basic overview
 ```js
 test('DOM ready under 2s', async t => {
   const perf = await getPerformanceMetrics({ t });
-
-  await t.expect(perf.domReady).lt(2000);
+  const computed = perf.computed;
+  
+  await t.expect(computed.domReady).lt(2000);
 });
 ```
 
