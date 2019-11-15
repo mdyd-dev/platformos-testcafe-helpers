@@ -1,3 +1,9 @@
+## Deprecation notice 
+
+Nowadays there is better solution for most of the helpers implemented in this library: [@testing-library/testcafe](https://testing-library.com/docs/testcafe-testing-library/intro)
+
+---
+
 ## Why?
 
 This package exists to DRY up tests when they are scattered across multiple directories.
